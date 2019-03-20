@@ -1,10 +1,3 @@
-// Constructor function
-function Car() {
-    this.fuelTank = 100
+function Counter () {
+    this.number = 0
 }
-
-Car.prototype.move = function () {
-    this.fuelTank = this.fuelTank - 10
-}
-
-const car1 = new Car()
