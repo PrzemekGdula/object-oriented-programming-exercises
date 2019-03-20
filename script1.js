@@ -1,17 +1,5 @@
-const makeCar = function (fuelTank) {
-    return {
-        fuelTank: fuelTank,
-        move: function (combustion) {
-            this.fuelTank = this.fuelTank - combustion
-        },
-    }
+function Car() {
+    this.fuelTank = 100
 }
-const cars = []
 
-for (let i = 0; i < 100; i++) {
-   const car = makeCar(100-i)
-
-   cars.push(car)
-    
-}
-console.log(cars);
+constcar1 = Car()
