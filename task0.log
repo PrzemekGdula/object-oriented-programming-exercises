@@ -1,0 +1,14 @@
+console.log (this)
+VM2768:1 Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+undefined
+function logThis () {
+    console.log(this)
+}
+undefined
+const me = { name: 'Mateusz', showMe: logThis }
+undefined
+me.showMe()
+VM2828:2 {name: "Mateusz", showMe: ƒ}
+undefined
+me.showMe === logThis
+true

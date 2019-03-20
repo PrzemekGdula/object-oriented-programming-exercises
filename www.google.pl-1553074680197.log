@@ -1,0 +1,17 @@
+function makeSound () {
+    console.log(this.sound)
+}
+undefined
+makeSound()
+VM1043:2 undefined
+undefined
+const cat1 = {
+    sound: 'Meow!',
+    makeSound: makeSound,
+}
+undefined
+cat1.makeSound()
+VM1043:2 Meow!
+undefined
+makeSound ===cat1.makeSound
+true
