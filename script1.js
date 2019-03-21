@@ -13,20 +13,33 @@ ArrayPusher.prototype.render = function () {
     this.container.innerText = ''
 
     const input = document.createElement('input')
+    const button = document.createElement('button')
+    const p = document.createElement('p')
+
     input.setAttribute('type', 'number')
-    input.value = this.inputValue
+    input.value = this.inputValue // gdyby tego nie bylo to nie dodawalby wartosci do stanu tylko czyscil//
+    button.innerText = 'Dodaj liczbe!'
+    p.innerText = `Suma liczb to - ${this.sum()}, a srednia to - ${this.average()}` //`` template stringi sluza do tegoaby dodawac wyrazenia(np funkcje),  bez uzycia +, trzeba stosowac wtedy {}, () funkcje musza byc z wywolaniem
 
     input.addEventListener(
         'change',
         event => this.inputValue = Number(event.target.value)
     )
 
-    this.container.appendChild(input)
+    button.addEventListener(
+        'click',
+        () => this.push(this.inputValue)
+    )
 
+    this.container.appendChild(input)
+    this.container.appendChild(button)
+    this.container.appendChild(p)
 }
 
 ArrayPusher.prototype.push = function (newValue) {
     this.array = this.array.concat(newValue)
+
+    this.render() //za kazda zmiana rerenderuje//
 }
 
 ArrayPusher.prototype.sum = function () {
@@ -40,9 +53,9 @@ ArrayPusher.prototype.sum = function () {
 }
 
 ArrayPusher.prototype.average = function () {
-    if(this.array.length === 0) return 0
+    if (this.array.length === 0) return 0
 
-   return this.sum() / this.array.length
+    return this.sum() / this.array.length
 }
 
 
