@@ -1,34 +1,23 @@
-function Counter () {
-    this.number = 0
+// ArrayPusher
 
-    this.render()
+function ArrayPusher() {
+    this.array = []
+
 }
 
-Counter.prototype.inc = function () {
-    this.number = this.number + 1
+ArrayPusher.prototype.push = function (newValue) {
+    this.array = this.array.concat(newValue)
 
-    console.log(this)
-
-    this.render()
 }
 
-Counter.prototype.render = function () {
-    document.body.innerHTML = ''
+const pusher1 = new ArrayPusher()
+pusher1.push(1)
+pusher1.push(4)
+pusher1.push(5)
+// { array: [1, 4, 5] }
 
-    const h1 = document.createElement('h1')
-    const button = document.createElement('button')
-
-    h1.innerText = this.number
-    button.innerText  = '+'
-
-    button.addEventListener(
-        'click',
-        this.inc.bind(this)
-    )
-
-    document.body.appendChild(h1)
-    document.body.appendChild(button)
-
-
-    
-}
+const pusher2 = new ArrayPusher()
+pusher2.push(10)
+pusher2.push(14)
+pusher2.push(6)
+// { array: [10, 14, 6] }
