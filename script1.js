@@ -28,4 +28,7 @@ Counter.prototype.render = function () {
 
     document.body.appendChild(h1)
     document.body.appendChild(button)
+
+
+    
 }
