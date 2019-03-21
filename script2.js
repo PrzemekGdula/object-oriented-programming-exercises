@@ -1,12 +1,11 @@
-function Person (name, lastname) {
+function Sum (a, b) {
 
 
-    this.name = name
-    this.lastname = lastname
-    }
+    this.sum = a + b
+}
 
-const person1 = new Person('Przemek', 'Gdula')
-const person2 = new Person('Ala', 'Makotowska')
+const sum1 = new Sum(1, 4)
+const sum2 = new Sum(3, 4)
 
 
 
