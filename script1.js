@@ -1,7 +1,28 @@
 // ArrayPusher
 
-function ArrayPusher() {
+function ArrayPusher(selector) {
+    this.container = document.querySelector(selector) || document.body
+
     this.array = []
+    this.inputValue = 0 //pokazujemy stan poczatkowy inputa//
+
+    this.render()
+}
+
+ArrayPusher.prototype.render = function () {
+    this.container.innerText = ''
+
+    const input = document.createElement('input')
+    input.setAttribute('type', 'number')
+    input.value = this.inputValue
+
+    input.addEventListener(
+        'change',
+        event => this.inputValue = Number(event.target.value)
+    )
+
+    this.container.appendChild(input)
+
 }
 
 ArrayPusher.prototype.push = function (newValue) {
@@ -19,25 +40,9 @@ ArrayPusher.prototype.sum = function () {
 }
 
 ArrayPusher.prototype.average = function () {
+    if(this.array.length === 0) return 0
+
    return this.sum() / this.array.length
 }
 
-const pusher1 = new ArrayPusher()
-pusher1.push(1)
-pusher1.push(4)
-pusher1.push(5)
-// { array: [1, 4, 5] }
 
-pusher1.sum()
-pusher1.average() // 10
-  // pusher1.average() // 3.(3)
-  
-  const pusher2 = new ArrayPusher()
-pusher2.push(10)
-pusher2.push(14)
-pusher2.push(6)
-// { array: [10, 14, 6] }
-
-pusher2.sum()
-pusher2.average() // 30
-  // pusher2.average() // 10
